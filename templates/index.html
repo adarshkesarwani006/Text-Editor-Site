@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+  <title>Text Editor Site</title>
+</head>
+<style>
+ 
+  body {
+    color: black;
+    background-image: linear-gradient(rgba(255, 254, 254, 0.877), rgba(89, 131, 236, 0.76));
+  }
+
+  button {
+    margin-bottom: 5px;
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Texteditorsites.com</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Hi!</strong> You can use this site to edit your textwork.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <div class="container">
+    <form action='/analyze' method='post'> {% csrf_token %}
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">
+          <h4>Enter Your Text Here:</h4>
+        </label>
+        <textarea class="form-control border border-success border border-3" name='text'
+          id="exampleFormControlTextarea1" rows="10"></textarea>
+
+        <div class="form-check form-switch">
+          <input class="form-check-input mt-2 border border-primary border border-2" type="checkbox" name="removepunc"
+            id="flexSwitchCheckDefault1">
+          <label class="form-check-label" for="flexSwitchCheckDefault1">
+            <h5>Remove Punctuation</h5>
+          </label>
+        </div>
+
+        <div class="form-check form-switch">
+          <input class="form-check-input border border-primary border border-2" type="checkbox" name="fullcaps"
+            id="flexSwitchCheckDefault2">
+          <label class="form-check-label" for="flexSwitchCheckDefault2">
+            <h5>Upper Case</h5>
+          </label>
+        </div>
+
+        <div class="form-check form-switch">
+          <input class="form-check-input border border-primary border border-2" type="checkbox" name="newlineremover"
+            id="flexSwitchCheckDefault3">
+          <label class="form-check-label" for="flexSwitchCheckDefault3">
+            <h5>New Line Remover</h5>
+          </label>
+        </div>
+
+        <div class="form-check form-switch">
+          <input class="form-check-input border border-primary border border-2" type="checkbox" name="spaceremover"
+            id="flexSwitchCheckDefault4">
+          <label class="form-check-label" for="flexSwitchCheckDefault4">
+            <h5>Space Remover</h5>
+          </label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-info mt-2 border border-primary button" style="background-color: antiquewhite;" >
+        <h5>Analyze Text</h5>
+      </button>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
